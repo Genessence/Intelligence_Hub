@@ -1,0 +1,134 @@
+/* ===========================================================================
+   NEXUS 3.0 ("Apple-grade") per docs/DESIGN_SPEC_v3: <html data-ui="apple">.
+   Grey canvas, solid white tiles, glass only on the top bar, one blue for action,
+   status colours only for status, module colours only as icon tiles.
+   ========================================================================= */
+[data-ui='apple'] {
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f5f5f7;
+  --border: #e5e5ea;
+  --border-strong: #d1d1d6;
+  --text: #1d1d1f;
+  --text-2: #6e6e73;
+  --text-3: #6e6e73;
+  --grey: #aeaeb2;
+  --accent: #0071e3;
+  --accent-hover: #0062c4;
+  --accent-strong: #0071e3;
+  --accent-strong-hover: #0062c4;
+  --accent-soft: rgb(0 113 227 / 0.1);
+  --accent-ink: #0066cc;
+  --on-accent: #ffffff;
+  --critical: #d70015;
+  --critical-fill: #ff3b30;
+  --critical-bg: rgb(255 59 48 / 0.1);
+  --attention: #b25000;
+  --attention-fill: #ff9500;
+  --attention-bg: rgb(255 149 0 / 0.12);
+  --resolved: #1f7a3a;
+  --resolved-fill: #34c759;
+  --resolved-bg: rgb(52 199 89 / 0.12);
+  --info: #0066cc;
+  --info-bg: rgb(0 113 227 / 0.1);
+  --shadow: 0 1px 1px rgb(0 0 0 / 0.02), 0 4px 16px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.04), 0 16px 40px rgb(0 0 0 / 0.1);
+  --topbar: rgb(245 245 247 / 0.72);
+  --overlay: rgb(0 0 0 / 0.3);
+  --radius-card: 24px;
+  --radius-ctl: 999px;
+  --brand-panel: #ffffff;
+  --brand-panel-2: #ffffff;
+  --on-brand: #1d1d1f;
+  --on-brand-2: #6e6e73;
+  /* Identity: modules, shown only as icon tiles */
+  --id-exim: #5856d6; --id-cost: #30b0c7; --id-npd: #af52de; --id-tooling: #a2845e;
+  --id-vendor: #5ac8fa; --id-capex: #ffcc00; --id-rnd: #007aff; --id-sap: #48484a;
+  --id-quality: #ff2d55; --id-datadrop: #8e8e93;
+  --src-sap: #48484a; --src-cost: #30b0c7; --src-exim: #5856d6; --src-npd: #af52de; --src-tooling: #a2845e;
+  --src-rnd: #007aff; --src-capex: #ffcc00; --src-vendor: #5ac8fa; --src-quality: #ff2d55; --src-datadrop: #8e8e93;
+  --spring: cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+[data-ui='apple'][data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-2: #2c2c2e;
+  --border: #38383a;
+  --border-strong: #48484a;
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --text-3: #a1a1a6;
+  --grey: #636366;
+  --accent-ink: #2997ff;
+  --accent-soft: rgb(0 113 227 / 0.22);
+  --critical: #ff6961; --critical-fill: #ff453a; --critical-bg: rgb(255 69 58 / 0.16);
+  --attention: #ffb340; --attention-fill: #ff9f0a; --attention-bg: rgb(255 159 10 / 0.16);
+  --resolved: #4ade80; --resolved-fill: #30d158; --resolved-bg: rgb(48 209 88 / 0.16);
+  --info: #2997ff; --info-bg: rgb(0 113 227 / 0.22);
+  --shadow: 0 0 0 1px rgb(255 255 255 / 0.04);
+  --shadow-lg: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 40px rgb(0 0 0 / 0.6);
+  --topbar: rgb(0 0 0 / 0.72);
+  --overlay: rgb(0 0 0 / 0.55);
+  --brand-panel: #1c1c1e; --brand-panel-2: #1c1c1e; --on-brand: #f5f5f7; --on-brand-2: #a1a1a6;
+}
+
+/* Typography: SF on Apple devices, Inter with optical sizing elsewhere */
+[data-ui='apple'] body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px; line-height: 22px; letter-spacing: -0.005em;
+  font-optical-sizing: auto;
+  background: var(--bg);
+}
+[data-ui='apple'] .font-mono { font-family: 'SF Mono', ui-monospace, 'JetBrains Mono', monospace; }
+[data-ui='apple'] h1 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable', sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.035em; }
+[data-ui='apple'] section > header h2 { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: -0.005em; }
+.display { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable', sans-serif; font-weight: 600; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.display .unit { font-size: 0.56em; font-weight: 500; letter-spacing: -0.01em; margin-left: 0.08em; }
+
+/* Tiles: solid, no border, soft shadow, 24px radius */
+[data-ui='apple'] section.rounded-\[var\(--radius-card\)\],
+[data-ui='apple'] .tile {
+  border-color: transparent;
+  box-shadow: var(--shadow);
+  transition: transform 200ms var(--spring), box-shadow 200ms var(--spring);
+}
+[data-ui='apple'] section.rounded-\[var\(--radius-card\)\] > header { border-bottom-color: transparent; padding: 20px 24px 4px; }
+[data-ui='apple'] section.rounded-\[var\(--radius-card\)\] > header + div { padding-left: 24px; padding-right: 24px; }
+[data-ui='apple'] .card-lift:hover, [data-ui='apple'] .tile-hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* Glass only on the navigation layer */
+[data-ui='apple'] header.sticky { border-bottom-color: transparent; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+
+/* Sidebar: floating 256px tile, 12px inset, coloured icon tiles */
+[data-ui='apple'] aside.brand-panel {
+  top: 12px; bottom: 12px; left: 12px; width: 256px;
+  border-radius: 24px; box-shadow: var(--shadow); background: var(--surface);
+}
+@media (min-width: 768px) { [data-ui='apple'] .md\:pl-60 { padding-left: calc(256px + 24px); } }
+[data-ui='apple'] aside.brand-panel [style*='border-color'] { border-color: transparent !important; }
+[data-ui='apple'] aside nav a { height: 36px; border-radius: 10px; }
+[data-ui='apple'] .nav-hover:hover { background: var(--surface-2); }
+[data-ui='apple'] .nav-active { background: var(--surface-2); box-shadow: none; color: var(--text) !important; }
+[data-ui='apple'] .nav-active::before { display: none; }
+.nav-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+[data-ui='apple'] .nav-icon { width: 26px; height: 26px; border-radius: 8px; background: var(--tile-color); color: var(--tile-ink, #fff); }
+[data-ui='apple'] .nav-icon svg { width: 15px; height: 15px; }
+[data-ui='apple'] .classic-only { display: none !important; }
+.apple-only { display: none !important; }
+[data-ui='apple'] .apple-only { display: revert !important; }
+
+/* Login hero: no dark block; a white tile */
+[data-ui='apple'] .hero-panel { background: var(--surface); color: var(--text); box-shadow: var(--shadow); --on-brand: var(--text); --on-brand-2: var(--text-2); }
+
+/* Controls */
+[data-ui='apple'] button:active { transform: scale(0.98); }
+[data-ui='apple'] :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+[data-ui='apple'] .page-enter { animation: apple-rise 220ms var(--spring) both; }
+@keyframes apple-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes apple-pulse { 0% { box-shadow: 0 0 0 0 rgb(255 59 48 / 0.45); } 70% { box-shadow: 0 0 0 12px rgb(255 59 48 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 59 48 / 0); } }
+.pulse-live { animation: apple-pulse 2.4s ease-out infinite; }
+@keyframes value-flash { from { background: var(--resolved-bg); } to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) { .pulse-live { animation: none; } }
+[data-ui='apple'] { --id-vendor-ink: #0b2b3b; --id-capex-ink: #3a2e00; }

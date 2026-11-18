@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Genessence Nexus</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+    <meta name="theme-color" content="#0b7a6e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script>
+      // No-flash theme: apply the saved choice before first paint.
+      (function () {
+        var pref = 'system';
+        try { pref = localStorage.getItem('nexus-theme') || 'system'; } catch (e) {}
+        var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        var pal = 'teal';
+        try { pal = localStorage.getItem('nexus-palette') || 'teal'; } catch (e) {}
+        document.documentElement.setAttribute('data-palette', pal);
+        var ui = 'apple';
+        try { ui = localStorage.getItem('nexus-ui') || 'apple'; } catch (e) {}
+        if (ui !== 'classic') ui = 'apple';
+        document.documentElement.setAttribute('data-ui', ui);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

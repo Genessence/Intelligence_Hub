@@ -1,0 +1,144 @@
+/* Design tokens (spec section 12). The only place colours are defined. */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #f2f1ee;
+  --border: #e4e2dd;
+  --border-strong: #d4d1ca;
+  --text: #14161a;
+  --text-2: #585d66;
+  --text-3: #686d76;
+  --accent: #0d9488;
+  --accent-hover: #0b7a6e;
+  --accent-soft: #e6f4f2;
+  --accent-ink: #0b6f66;
+  --accent-strong: #0b7a6e; /* primary fill: white text passes AA */
+  --accent-strong-hover: #095f56;
+  --on-accent: #ffffff;
+  --critical: #b91c1c;
+  --critical-bg: #fee2e2;
+  --attention: #92400e;
+  --attention-bg: #fef3c7;
+  --info: #1d4ed8;
+  --info-bg: #dbeafe;
+  --resolved: #047857;
+  --resolved-bg: #d1fae5;
+  --shadow: 0 1px 2px rgb(20 22 26 / 0.05), 0 8px 24px rgb(20 22 26 / 0.06);
+  --shadow-lg: 0 2px 4px rgb(20 22 26 / 0.06), 0 18px 48px rgb(20 22 26 / 0.14);
+  --topbar: rgb(255 255 255 / 0.72);
+  --overlay: rgb(20 22 26 / 0.42);
+
+  --src-sap: #0a6ed1;
+  --src-cost: #a8710e;
+  --src-exim: #6d4f9e;
+  --src-npd: #c2540c;
+  --src-tooling: #0e7c7b;
+  --src-rnd: #3b5bdb;
+  --src-capex: #a32b20;
+  --src-vendor: #153f90;
+  --src-quality: #9d174d;
+  --src-datadrop: #57534e;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --surface: #12151a;
+  --surface-2: #191d23;
+  --border: #262b33;
+  --border-strong: #343a44;
+  --text: #e8eaed;
+  --text-2: #a2a8b3;
+  --text-3: #8b919c;
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-soft: #0f2e2b;
+  --accent-ink: #5eead4;
+  --accent-strong: #2dd4bf;
+  --accent-strong-hover: #5eead4;
+  --on-accent: #04201d;
+  --critical: #f87171;
+  --critical-bg: #3a1414;
+  --attention: #fbbf24;
+  --attention-bg: #36270a;
+  --info: #60a5fa;
+  --info-bg: #0f213d;
+  --resolved: #34d399;
+  --resolved-bg: #0c2e22;
+  --shadow: 0 0 0 1px rgb(255 255 255 / 0.02);
+  --shadow-lg: 0 0 0 1px rgb(255 255 255 / 0.04), 0 18px 48px rgb(0 0 0 / 0.5);
+  --topbar: rgb(18 21 26 / 0.72);
+  --overlay: rgb(0 0 0 / 0.6);
+
+  --src-sap: #4ea1f0;
+  --src-cost: #d9a441;
+  --src-exim: #a88bd6;
+  --src-npd: #f08a4b;
+  --src-tooling: #3cc4c2;
+  --src-rnd: #7f99f5;
+  --src-capex: #e2685c;
+  --src-vendor: #6f95e6;
+  --src-quality: #e0628f;
+  --src-datadrop: #a8a29e;
+}
+
+/* ---------------------------------------------------------------------------
+   Colour schemes (palettes). Accent family + brand panel per palette, for light and dark.
+   Status colours never change: green stays for resolved, red for critical.
+   ------------------------------------------------------------------------- */
+:root {
+  --brand-panel: #0b2f2c;
+  --brand-panel-2: #0f3d39;
+  --on-brand: #eef7f6;
+  --on-brand-2: #a9c9c5;
+}
+[data-theme='dark'] {
+  --brand-panel: #08201e;
+  --brand-panel-2: #0c2b28;
+}
+
+[data-palette='indigo'] {
+  --accent: #4f46e5; --accent-hover: #4338ca; --accent-soft: #eef0ff; --accent-ink: #3730a3;
+  --accent-strong: #4338ca; --accent-strong-hover: #3730a3; --on-accent: #ffffff;
+  --brand-panel: #17183f; --brand-panel-2: #22245a; --on-brand: #eef0ff; --on-brand-2: #b4b8e8;
+}
+[data-theme='dark'][data-palette='indigo'] {
+  --accent: #818cf8; --accent-hover: #a5b4fc; --accent-soft: #1c1d3d; --accent-ink: #a5b4fc;
+  --accent-strong: #818cf8; --accent-strong-hover: #a5b4fc; --on-accent: #0b0d2a;
+  --brand-panel: #0e0f29; --brand-panel-2: #16183a;
+}
+
+[data-palette='violet'] {
+  --accent: #7c3aed; --accent-hover: #6d28d9; --accent-soft: #f3edff; --accent-ink: #5b21b6;
+  --accent-strong: #6d28d9; --accent-strong-hover: #5b21b6; --on-accent: #ffffff;
+  --brand-panel: #1f1238; --brand-panel-2: #2c1a50; --on-brand: #f3edff; --on-brand-2: #c4b3e6;
+}
+[data-theme='dark'][data-palette='violet'] {
+  --accent: #a78bfa; --accent-hover: #c4b5fd; --accent-soft: #221836; --accent-ink: #c4b5fd;
+  --accent-strong: #a78bfa; --accent-strong-hover: #c4b5fd; --on-accent: #160b2b;
+  --brand-panel: #150c26; --brand-panel-2: #1e1236;
+}
+
+[data-palette='ember'] {
+  --accent: #c2410c; --accent-hover: #9a3412; --accent-soft: #fff1e8; --accent-ink: #9a3412;
+  --accent-strong: #c2410c; --accent-strong-hover: #9a3412; --on-accent: #ffffff;
+  --brand-panel: #2b1508; --brand-panel-2: #3d1e0c; --on-brand: #fff3ea; --on-brand-2: #e3bfa6;
+}
+[data-theme='dark'][data-palette='ember'] {
+  --accent: #fb923c; --accent-hover: #fdba74; --accent-soft: #2e1a0d; --accent-ink: #fdba74;
+  --accent-strong: #fb923c; --accent-strong-hover: #fdba74; --on-accent: #231004;
+  --brand-panel: #1c0e05; --brand-panel-2: #281409;
+}
+
+[data-palette='graphite'] {
+  --accent: #334155; --accent-hover: #1e293b; --accent-soft: #eef1f5; --accent-ink: #1e293b;
+  --accent-strong: #1e293b; --accent-strong-hover: #0f172a; --on-accent: #ffffff;
+  --brand-panel: #111827; --brand-panel-2: #1f2937; --on-brand: #f1f5f9; --on-brand-2: #a7b0bd;
+}
+[data-theme='dark'][data-palette='graphite'] {
+  --accent: #cbd5e1; --accent-hover: #e2e8f0; --accent-soft: #1c2129; --accent-ink: #e2e8f0;
+  --accent-strong: #e2e8f0; --accent-strong-hover: #f8fafc; --on-accent: #0b0d10;
+  --brand-panel: #0d1117; --brand-panel-2: #161b22;
+}

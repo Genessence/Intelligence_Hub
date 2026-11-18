@@ -1,0 +1,1 @@
+Spec v3.0 pasted by the user on 18 Nov 2026 is implemented in src/styles/apple.css (tokens, data-ui=apple), src/components/ModuleIcon.tsx, src/components/Shell.tsx (sidebar icon tiles) and src/pages/CommandCenterV3.tsx. See the conversation for the full text.
